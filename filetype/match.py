@@ -5,6 +5,7 @@ from __future__ import absolute_import
 from .types import ARCHIVE as archive_matchers
 from .types import AUDIO as audio_matchers
 from .types import APPLICATION as application_matchers
+from .types import BINARY as binary_matchers
 from .types import DOCUMENT as document_matchers
 from .types import FONT as font_matchers
 from .types import IMAGE as image_matchers
@@ -35,6 +36,21 @@ def match(obj, matchers=TYPES):
 
     return None
 
+def binary_match(obj):
+    """
+    Matches the given input against the available
+    binary type matchers.
+
+    Args:
+        obj: path to file, bytes or bytearray.
+
+    Returns:
+        Type instance if matches. Otherwise None.
+
+    Raises:
+        TypeError: if obj is not a supported type.
+    """
+    return match(obj, binary_matchers)
 
 def image_match(obj):
     """

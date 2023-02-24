@@ -5,6 +5,7 @@ from __future__ import absolute_import
 from . import archive
 from . import audio
 from . import application
+from . import binary
 from . import document
 from . import font
 from . import image
@@ -62,6 +63,13 @@ AUDIO = (
 # Supported font types
 FONT = (font.Woff(), font.Woff2(), font.Ttf(), font.Otf())
 
+# Supported binary types
+BINARY = (
+    binary.Elf(),
+    binary.MachO(),
+    binary.Pe32(),
+)
+
 # Supported archive container types
 ARCHIVE = (
     archive.Br(),
@@ -75,7 +83,6 @@ ARCHIVE = (
     archive.Bz2(),
     archive.SevenZ(),
     archive.Pdf(),
-    archive.Exe(),
     archive.Swf(),
     archive.Rtf(),
     archive.Nes(),
@@ -90,7 +97,6 @@ ARCHIVE = (
     archive.Z(),
     archive.Lzop(),
     archive.Lz(),
-    archive.Elf(),
     archive.Lz4(),
     archive.Zstd(),
 )
@@ -115,4 +121,4 @@ DOCUMENT = (
 
 
 # Expose supported type matchers
-TYPES = list(IMAGE + AUDIO + VIDEO + FONT + DOCUMENT + ARCHIVE + APPLICATION)
+TYPES = list(IMAGE + AUDIO + VIDEO + FONT + DOCUMENT + BINARY + ARCHIVE + APPLICATION)
